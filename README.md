@@ -19,3 +19,12 @@ With these two checks, PhishHawk can provide insights into whether an email may 
 1. Clone the repository:
    ```bash
    git clone https://github.com/infosecdairies/PhishHawk.git
+
+2. Navigate to the Project Directory:
+   ```bash
+    cd PhishHawk
+3. Run the Tool:
+   ```bash
+   python3 phishhawk.py
+
+
