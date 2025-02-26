@@ -1,13 +1,5 @@
 # PhishHawk - Phishing Email Analyzer 🦅
 
-banner = """
- ____  _     _     _     _   _                _    
-|  _ \| |__ (_)___| |__ | | | | __ ___      _| | __
-| |_) | '_ \| / __| '_ \| |_| |/ _` \ \ /\ / / |/ / 
-|  __/| | | | \__ \ | | |  _  | (_| |\ V  V /|   <  
-|_|   |_| |_|_|___/_| |_|_| |_|\__,_| \_/\_/ |_|\_\ 
-                                                    
-PhishHawk - Phishing Email Analyzer 🦅
 
 PhishHawk is a security tool designed to help identify phishing attempts by analyzing email headers. It focuses on two key components to determine whether an email is legitimate or malicious:
 
