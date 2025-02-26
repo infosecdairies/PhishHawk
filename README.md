@@ -21,5 +21,17 @@ With these two checks, PhishHawk can provide insights into whether an email may 
    ```bash
    git clone https://github.com/infosecdairies/PhishHawk.git
 
+2. Navigate to the Project Directory:
+   ```bash
+   cd PhishHawk
+
+3. Run the Tool:
+   ```bash
+   python3 phishhawk.py
+
+4. How to use:
+   ```bash
+   Enter the mail id without these <> symbols.
+
 
 
