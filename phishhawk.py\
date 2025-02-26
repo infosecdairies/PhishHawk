@@ -1,0 +1,72 @@
+
+import dns.resolver
+import socket
+import requests
+
+banner = """
+ ____  _     _     _     _   _                _    
+|  _ \\| |__ (_)___| |__ | | | | __ ___      _| | __
+| |_) | '_ \\| / __| '_ \\| |_| |/ _` \\ \\ /\\ / / |/ / 
+|  __/| | | | \\__ \\ | | |  _  | (_| |\\ V  V /|   <  
+|_|   |_| |_|_|___/_| |_|_| |_\\__,_| \\_/\\_/ |_|\_\\ 
+                                                     
+                      PhishHawk - Phishing Email Analyzer
+"""
+
+print(banner)
+
+# Function to check DNS records (SPF, DKIM, DMARC)
+def check_dns_records(domain):
+    try:
+        spf = dns.resolver.resolve(domain, 'TXT')
+        dkim = dns.resolver.resolve(f"{domain}._domainkey", 'TXT')
+        dmarc = dns.resolver.resolve(f"_dmarc.{domain}", 'TXT')
+        
+        print(f"SPF Records: {[record.to_text() for record in spf]}")
+        print(f"DKIM Records: {[record.to_text() for record in dkim]}")
+        print(f"DMARC Records: {[record.to_text() for record in dmarc]}")
+    except Exception as e:
+        print(f"Error while checking DNS records: {e}")
+
+# Function to check if the domain has a valid A record (IP address)
+def check_a_record(domain):
+    try:
+        ip = socket.gethostbyname(domain)
+        print(f"IP Address for {domain}: {ip}")
+    except socket.gaierror:
+        print(f"Could not resolve domain: {domain}")
+
+# Function to check IP reputation
+def check_ip_reputation(ip):
+    # Placeholder for IP reputation check (you can integrate third-party APIs here)
+    print(f"Checking IP Reputation for: {ip}")
+    # Example: Check using a third-party service API (for demonstration only)
+    # response = requests.get(f"https://api.ipapi.com/{ip}?access_key=your_api_key")
+    # reputation = response.json()
+    print(f"IP Reputation: No API integrated, just a placeholder.")
+
+# Main function
+def main():
+    email = input("Enter the email address to check: ").strip()
+    
+    # Extract the domain from the email
+    domain = email.split('@')[-1]
+    
+    print(f"Checking records for domain: {domain}")
+    
+    # Check DNS records (SPF, DKIM, DMARC)
+    check_dns_records(domain)
+    
+    # Check A record (IP address) for the domain
+    check_a_record(domain)
+    
+    # Get IP address from DNS and check reputation
+    try:
+        ip = socket.gethostbyname(domain)
+        check_ip_reputation(ip)
+    except socket.gaierror:
+        print("Could not retrieve IP address for domain.")
+
+# Run the tool
+if __name__ == "__main__":
+    main()
