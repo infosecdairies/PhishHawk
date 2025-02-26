@@ -7,6 +7,7 @@ banner = """
 |  __/| | | | \__ \ | | |  _  | (_| |\ V  V /|   <  
 |_|   |_| |_|_|___/_| |_|_| |_|\__,_| \_/\_/ |_|\_\ 
                                                     
+PhishHawk - Phishing Email Analyzer 🦅
 
 PhishHawk is a security tool designed to help identify phishing attempts by analyzing email headers. It focuses on two key components to determine whether an email is legitimate or malicious:
 
